@@ -1,0 +1,31 @@
+# .github/workflows/ci-cd.yml
+name: CI-CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+env:  # 👇 Custom variables
+  PROJECT_NAME: "Simple-CI-CD-Demo"
+  DEPLOY_DIR: "./deploy"
+  BUILD_COMMAND: "echo Building ${{ env.PROJECT_NAME }}"
+  DEPLOY_COMMAND: "echo Deploying to ${{ env.DEPLOY_DIR }}"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧾 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: 🔧 Build Step
+        run: |
+          ${{ env.BUILD_COMMAND }}
+
+      - name: 🚀 Deploy Step
+        run: |
+          mkdir -p ${{ env.DEPLOY_DIR }}
+          cp index.html ${{ env.DEPLOY_DIR }}/
+          ${{ env.DEPLOY_COMMAND }}
