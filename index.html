@@ -28,179 +28,118 @@
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-      z-index: 999;
-    }
-
-    nav h2 {
-      color: #00ffe0;
-      font-weight: bold;
-    }
-
-    nav a {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khuram Abbasi - DevOps & Azure Engineer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000000; /* Pure black */
       color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
+      margin: 0;
+      padding: 0;
     }
 
-    nav a:hover {
-      color: #00ffe0;
-    }
-
-    .section {
-      padding: 80px 20px;
+    header {
       text-align: center;
+      padding: 3rem 1rem;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      padding: 40px 20px;
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
       max-width: 600px;
-      margin: auto;
-      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      animation: fadeIn 1.5s ease;
+      margin: 0 auto;
     }
 
-    h1 span, h2 span {
-      color: #00ffe0;
-      text-shadow: 0 0 10px #00ffe0;
-    }
-
-    .btn-group {
-      margin-top: 25px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 25px;
-      font-size: 1rem;
-      border: none;
-      border-radius: 30px;
-      background: #00ffe0;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s ease;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background: white;
-      color: #00ffe0;
-      transform: scale(1.07);
-    }
-
-    .grid {
+    .projects {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-      padding: 0 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
 
-    .grid-item {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: 0.3s ease;
+    .project {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .grid-item:hover {
-      transform: scale(1.05);
-      background: rgba(255,255,255,0.15);
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.6);
+    }
+
+    .project h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .project p {
+      font-size: 1rem;
+      color: #ccc;
     }
 
     footer {
-      background: rgba(0, 0, 0, 0.6);
       text-align: center;
-      padding: 20px;
+      padding: 2rem;
       font-size: 0.9rem;
+      color: #666;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .project h2 {
+        font-size: 1.25rem;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Khuram Abbasi</h1>
+    <p>DevOps Engineer | Azure | GitHub Actions | Docker | CI/CD | IIS | Terraform</p>
+  </header>
 
-  <!-- Navbar -->
-  <nav>
-    <h2>Khuram</h2>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+  <section class="projects">
+    <div class="project">
+      <h2>CI/CD with GitHub Actions</h2>
+      <p>Automated build and deployment pipelines for QA, UAT, and Production environments using GitHub Actions, IIS, and PowerShell.</p>
     </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="section">
-    <div class="card">
-      <h1>I'm <span>Khuram Abbasi</span></h1>
-      <p>A DevOps Engineer automating and scaling applications with Azure, GitHub Actions & Docker.</p>
-      <div class="btn-group">
-        <a href="https://github.com/knabbasi" target="_blank" class="btn">🌐 GitHub</a>
-        <a href="#projects" class="btn">📂 Projects</a>
-        <a href="mailto:khuram@example.com" class="btn">📬 Contact</a>
-      </div>
+    <div class="project">
+      <h2>Dockerized ASP.NET App</h2>
+      <p>Created and deployed .NET Framework and Core apps using Docker containers on both Windows Server and Linux VMs.</p>
     </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section">
-    <h2><span>My Projects</span></h2>
-    <div class="grid">
-      <div class="grid-item">
-        <h3>CI/CD Pipeline</h3>
-        <p>Automated build & deploy using GitHub Actions and IIS for .NET Core app.</p>
-      </div>
-      <div class="grid-item">
-        <h3>Dockerized App</h3>
-        <p>Containerized a legacy ASP.NET app using Docker on Windows Server.</p>
-      </div>
-      <div class="grid-item">
-        <h3>Azure VM Deployment</h3>
-        <p>Deployed Angular + API app on Azure Linux VM using manual & scripted methods.</p>
-      </div>
+    <div class="project">
+      <h2>Azure VM Deployment</h2>
+      <p>Configured and deployed applications on Azure Virtual Machines with automated provisioning and configuration scripts.</p>
     </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <h2><span>My Tools</span></h2>
-    <div class="grid">
-      <div class="grid-item">⚙️ Azure DevOps</div>
-      <div class="grid-item">🐳 Docker</div>
-      <div class="grid-item">🚀 GitHub Actions</div>
-      <div class="grid-item">🖥️ IIS & Windows Server</div>
-      <div class="grid-item">🧪 CI/CD</div>
-      <div class="grid-item">🔐 Bash & Scripting</div>
+    <div class="project">
+      <h2>Self-Hosted Runner Setup</h2>
+      <p>Configured GitHub self-hosted runners on on-prem servers to manage internal deployments efficiently and securely.</p>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <h2><span>Contact Me</span></h2>
-    <p>Email: <strong>khuram@example.com</strong></p>
-    <p>LinkedIn: <strong>linkedin.com/in/khuramabbasi</strong></p>
   </section>
 
   <footer>
-    &copy; 2025 Khuram Abbasi | Made with ☁️ + 💻 + ❤️
+    <p>© 2025 Khuram Abbasi. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
