@@ -3,143 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Khuram Abbasi | DevOps Engineer</title>
-  <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    html {scroll-behavior: smooth;}
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(-45deg, #1d2b64, #f8cdda, #1d2b64, #c33764);
-      background-size: 400% 400%;
-      animation: gradientBG 12s ease infinite;
-      color: white;
-    }
-
-    @keyframes gradientBG {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Khuram Abbasi - DevOps & Azure Engineer</title>
+  <title>Welcome to Khuram's World</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #000000; /* Pure black */
-      color: white;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+      background-color: black;
+      overflow-x: hidden;
+    }
+
+    .bg-animation {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle, #0f0f0f, #000000);
+      animation: pulse 10s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% {
+        background: radial-gradient(circle, #0f0f0f, #000000);
+      }
+      100% {
+        background: radial-gradient(circle, #1a1a1a, #000000);
+      }
     }
 
     header {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 60px 20px 20px;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #00ffe7;
     }
 
     p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .project {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 15px;
-      padding: 1.5rem;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 36px rgba(0,0,0,0.6);
-    }
-
-    .project h2 {
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
-
-    .project p {
-      font-size: 1rem;
+      font-size: 1.2em;
       color: #ccc;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      background: linear-gradient(to right, #00ffe7, #007acc);
+      color: black;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(to right, #007acc, #00ffe7);
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .project h2 {
-        font-size: 1.25rem;
-      }
+      margin-top: 80px;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #777;
     }
   </style>
 </head>
 <body>
+  <div class="bg-animation"></div>
+
   <header>
-    <h1>Khuram Abbasi</h1>
-    <p>DevOps Engineer | Azure | GitHub Actions | Docker | CI/CD | IIS | Terraform</p>
+    <h1>Welcome to Khuram's Digital World</h1>
+    <p>Explore the magic of DevOps, Azure, and Web Technology!</p>
   </header>
 
-  <section class="projects">
-    <div class="project">
-      <h2>CI/CD with GitHub Actions</h2>
-      <p>Automated build and deployment pipelines for QA, UAT, and Production environments using GitHub Actions, IIS, and PowerShell.</p>
-    </div>
-
-    <div class="project">
-      <h2>Dockerized ASP.NET App</h2>
-      <p>Created and deployed .NET Framework and Core apps using Docker containers on both Windows Server and Linux VMs.</p>
-    </div>
-
-    <div class="project">
-      <h2>Azure VM Deployment</h2>
-      <p>Configured and deployed applications on Azure Virtual Machines with automated provisioning and configuration scripts.</p>
-    </div>
-
-    <div class="project">
-      <h2>Self-Hosted Runner Setup</h2>
-      <p>Configured GitHub self-hosted runners on on-prem servers to manage internal deployments efficiently and securely.</p>
-    </div>
-  </section>
+  <div class="buttons">
+    <button class="btn" onclick="alert('GitHub Page Coming Soon!')">Visit GitHub</button>
+    <button class="btn" onclick="alert('Project Portfolio Under Construction')">My Projects</button>
+    <button class="btn" onclick="alert('Contact via Email')">Contact Me</button>
+    <button class="btn" onclick="alert('Stay Tuned for More!')">Learn More</button>
+  </div>
 
   <footer>
-    <p>© 2025 Khuram Abbasi. All rights reserved.</p>
+    &copy; 2025 Khuram Abbasi. All rights reserved.
   </footer>
 </body>
 </html>
