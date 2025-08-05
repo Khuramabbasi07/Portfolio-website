@@ -4,7 +4,7 @@ name: CI-CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
 
 env:  # 👇 Custom variables
   PROJECT_NAME: "Simple-CI-CD-Demo"
