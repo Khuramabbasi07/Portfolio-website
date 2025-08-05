@@ -1,5 +1,5 @@
 # .github/workflows/ci-cd.yml
-name: CI-CD Pipeline
+name:  Run on My Self Hosted Runners
 
 on:
   push:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: 🧾 Checkout Code
