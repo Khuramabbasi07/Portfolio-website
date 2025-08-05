@@ -29,3 +29,4 @@ jobs:
           mkdir -p ${{ env.DEPLOY_DIR }}
           cp index.html ${{ env.DEPLOY_DIR }}/
           ${{ env.DEPLOY_COMMAND }}
+
