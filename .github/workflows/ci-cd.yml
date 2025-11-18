@@ -27,13 +27,31 @@ jobs:
           Write-Host " Generated version: $VERSION"
         shell: powershell
 
-      - name:  Build Step
+      - name: Build Step
         run: echo "Building ${{ env.PROJECT_NAME }} - Version ${{ env.VERSION }}"
 
-      - name:  Deploy Step
+      - name: Deploy Step
         run: |
           mkdir -p ${{ env.DEPLOY_DIR }}
           cp index.html ${{ env.DEPLOY_DIR }}/
           # Create version file
           echo ${{ env.VERSION }} > ${{ env.DEPLOY_DIR }}/version.txt
+          # Embed version in index.html
+          (Get-Content index.html) -replace '</body>', "<p>Version: $env:VERSION</p></body>" | Set-Content ${{ env.DEPLOY_DIR }}/index.html
           echo "Deploying ${{ env.PROJECT_NAME }} version ${{ env.VERSION }} to ${{ env.DEPLOY_DIR }}"
+        shell: powershell
+
+      - name: Create Git Tag
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag ${{ env.VERSION }}
+          git push origin ${{ env.VERSION }}
+        shell: powershell
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
