@@ -1,10 +1,10 @@
 # .github/workflows/ci-cd.yml
-name: Run on My Self Hosted Runners
+name: Run on LAPTOP-17
 
 on:
   push:
     branches:
-      - master  # Ya 'main' if you renamed
+      - master  
 
 env:
   PROJECT_NAME: "Simple-CI-CD-Demo"
@@ -15,22 +15,22 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: 🧾 Checkout Code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: 🔥 Generate Version
+      - name: Generate Version
         id: set_version
         run: |
           $buildNumber = (Get-Date -UFormat %H%M)
           $VERSION = "v$(Get-Date -Format 'yyyy.MM.dd').$buildNumber"
           echo "VERSION=$VERSION" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
-          Write-Host "📌 Generated version: $VERSION"
+          Write-Host " Generated version: $VERSION"
         shell: powershell
 
-      - name: 🔧 Build Step
+      - name:  Build Step
         run: echo "Building ${{ env.PROJECT_NAME }} - Version ${{ env.VERSION }}"
 
-      - name: 🚀 Deploy Step
+      - name:  Deploy Step
         run: |
           mkdir -p ${{ env.DEPLOY_DIR }}
           cp index.html ${{ env.DEPLOY_DIR }}/
