@@ -17,6 +17,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+        with:
+          persist-credentials: false   # taake hum PAT use kar saken
 
       - name: Generate Version
         id: set_version
@@ -24,7 +26,7 @@ jobs:
           $buildNumber = (Get-Date -UFormat %H%M)
           $VERSION = "v$(Get-Date -Format 'yyyy.MM.dd').$buildNumber"
           echo "VERSION=$VERSION" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8
-          Write-Host " Generated version: $VERSION"
+          Write-Host "Generated version: $VERSION"
         shell: powershell
 
       - name: Build Step
@@ -36,8 +38,6 @@ jobs:
           cp index.html ${{ env.DEPLOY_DIR }}/
           # Create version file
           echo ${{ env.VERSION }} > ${{ env.DEPLOY_DIR }}/version.txt
-          # Embed version in index.html
-          (Get-Content index.html) -replace '</body>', "<p>Version: $env:VERSION</p></body>" | Set-Content ${{ env.DEPLOY_DIR }}/index.html
           echo "Deploying ${{ env.PROJECT_NAME }} version ${{ env.VERSION }} to ${{ env.DEPLOY_DIR }}"
         shell: powershell
 
@@ -46,6 +46,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git tag ${{ env.VERSION }}
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/Khuramabbasi07/Portfolio-website.git
           git push origin ${{ env.VERSION }}
         shell: powershell
 
@@ -54,4 +55,4 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ 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 }}
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
