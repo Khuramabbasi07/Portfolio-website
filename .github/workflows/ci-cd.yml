@@ -57,4 +57,4 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
